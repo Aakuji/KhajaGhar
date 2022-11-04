@@ -1,0 +1,87 @@
+{% extends 'box/layout.html' %}
+{% load static %}
+{% block title %}
+Homepage
+{% endblock%}
+
+{% block content %}
+<style>
+    .carousel-item img {
+        height: 450px;
+    }
+
+    .card-img {
+        overflow: hidden;
+    }
+
+    .card-img:hover img {
+        transform: scale(1.5);
+    }
+
+    .card-img img {
+        transition: all 2s;
+    }
+</style>
+
+<!-- carousel start -->
+{% include 'box/messaging.html' %}
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"
+            aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+            aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+            aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="https://png.pngtree.com/thumb_back/fh260/back_our/20190620/ourmid/pngtree-food-seasoning-food-banner-image_169169.jpg"
+                class="d-block w-100" alt="...">
+
+        </div>
+        <div class="carousel-item">
+            <img src="https://i.pinimg.com/originals/bf/65/d5/bf65d51f34b1bf193ec947f3c0c3f3e0.jpg"
+                class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="https://png.pngtree.com/thumb_back/fh260/back_our/20190621/ourmid/pngtree-black-summer-special-food-background-image_194341.jpg"
+                class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<!-- carousel end -->
+
+<!-- card start -->
+<div class="container-fluid">
+    <div class="row row-cols-1 row-cols-md-4 g-4 mt-3">
+        {% for product in products %}
+        <div class="col">
+            <div class="card shadow-lg">
+                <div class="card-img">
+                    <img src="/{{product.product_image}}" class="card-img-top" alt="{{product.product_name}}"
+                        height="250px">
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">{{product.product_name}}</h5>
+                    <h5 class="card-title">Rs. {{product.product_price}}</h5>
+                    <a href="productdetails/{{product.id}}/"><button class="btn btn-success">View Details</button></a>
+
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock%}

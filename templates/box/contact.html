@@ -1,0 +1,52 @@
+{% extends 'box/layout.html' %}
+{% load static %}
+{% block title %}Cover
+{% endblock%}
+
+{% block content %}
+<style>
+    .bg-imggg {
+        background-image: url("https://rioslandscapingtree.files.wordpress.com/2021/09/114310.jpg");
+        min-height: 380px;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
+    }
+</style>
+<div class="container mt-5 mx-auto shadow-lg bg-imggg">
+    <div class="contact-top d-flex">
+        <div class="col-lg-6 contact-address p-5 text-white">
+            <h2>KhajaGhar</h2>
+            <h3>Kathmandu,Nepal</h3>
+            <h4>+9770123123</h4>
+            <h4>email:KhajaGhar@gmail.com</h4>
+            <h4>
+                <Website:http:>ourwebsite.com
+            </h4>
+        </div>
+        <div class="col-md-6 contact-form p-3">
+            <form method="post" action="/contact">
+                {% csrf_token %}
+                <label for="name">Name</label>
+                <input type="text" id="subject" class="form-control" name="name" placeholder="Your Name please">
+                <label for="email">Email:</label>
+                <input type="email" id="email" class="form-control" name="email" placeholder="Email@gmail.com">
+                <label for="phone">phone</label>
+                <input type="text" id="subject" class="form-control" name="phone" placeholder="+977XXXXXXXXXX">
+                <label for="desc">Description:</label>
+                <textarea type="description" row="5" class="form-control" name="desc"></textarea>
+                <button class="form-control btn btn-warning mt-3" type="Submit" value="send_email">Submit</button>
+
+            </form>
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d113032.64621395394!2d85.25609251320085!3d27.708942727046708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c1bf18db1ea!2sKathmandu%2044600!5e0!3m2!1sen!2snp!4v1650278824383!5m2!1sen!2snp"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+    </div>
+</div>
+
+{%endblock%}
